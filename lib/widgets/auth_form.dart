@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import '../models/auth_data.dart';
 
 class AuthForm extends StatefulWidget {
+  final void Function(AuthData authData) onSubmit;
+
+  AuthForm(this.onSubmit);
+
   @override
   _AuthFormState createState() => _AuthFormState();
 }
@@ -16,8 +20,7 @@ class _AuthFormState extends State<AuthForm> {
     FocusScope.of(context).unfocus();
 
     if (isValid) {
-      print(_authData.name);
-      print(_authData.email);
+      widget.onSubmit(_authData);
     }
   }
 

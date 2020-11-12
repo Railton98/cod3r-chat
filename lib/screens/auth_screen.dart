@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/auth_data.dart';
 import '../widgets/auth_form.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -8,11 +9,16 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  void _handleSubmit(AuthData authData) {
+    print(authData.name);
+    print(authData.email);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: AuthForm(),
+      body: AuthForm(_handleSubmit),
     );
   }
 }
