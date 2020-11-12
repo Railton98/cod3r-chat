@@ -22,7 +22,12 @@ class ChatScreen extends StatelessWidget {
             );
           }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Firestore.instance.collection('chat').add({
+            'text': 'Adicionado pelo app!',
+            'flutter': true,
+          });
+        },
         child: Icon(Icons.add),
       ),
     );
