@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "232071477301",
+    "firebase_url": "https://cod3r-chat-b59bb.firebaseio.com",
+    "project_id": "cod3r-chat-b59bb",
+    "storage_bucket": "cod3r-chat-b59bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232071477301:android:9fbbe51587a04b2ae0597c",
+        "android_client_info": {
+          "package_name": "br.com.tecks.Cod3rChat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232071477301-jk27g0fgu800c3hcoko395q8oh40hdod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmNKT_LfXNgwJC0Znsj_mos4aqA8K4vd8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232071477301-jk27g0fgu800c3hcoko395q8oh40hdod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
