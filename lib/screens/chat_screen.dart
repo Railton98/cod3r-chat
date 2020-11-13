@@ -1,8 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/messages.dart';
+import '../widgets/new_message.dart';
 
 class ChatScreen extends StatelessWidget {
   @override
@@ -44,17 +44,9 @@ class ChatScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Expanded(child: Messages()),
+            NewMessage(),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Firestore.instance.collection('chat').add({
-            'text': 'Adicionado pelo app!',
-            'flutter': true,
-          });
-        },
-        child: Icon(Icons.add),
       ),
     );
   }
