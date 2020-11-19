@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../models/auth_data.dart';
@@ -16,13 +18,27 @@ class _AuthFormState extends State<AuthForm> {
   final GlobalKey<FormState> _formKey = GlobalKey();
   final AuthData _authData = AuthData();
 
-  _submit() {
+  void _submit() {
     bool isValid = _formKey.currentState.validate();
     FocusScope.of(context).unfocus();
+
+    if (_authData.image == null && _authData.isSignup) {
+      Scaffold.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Precisamos da sua foto!'),
+          backgroundColor: Theme.of(context).errorColor,
+        ),
+      );
+      return;
+    }
 
     if (isValid) {
       widget.onSubmit(_authData);
     }
+  }
+
+  void _handlePickedImage(File image) {
+    _authData.image = image;
   }
 
   @override
@@ -38,7 +54,7 @@ class _AuthFormState extends State<AuthForm> {
               child: Column(
                 children: [
                   _authData.isSignup
-                      ? UserImagePicker()
+                      ? UserImagePicker(_handlePickedImage)
                       : const SizedBox.shrink(),
                   _authData.isSignup
                       ? TextFormField(

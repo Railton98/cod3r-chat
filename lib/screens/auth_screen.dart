@@ -70,28 +70,30 @@ class _AuthScreenState extends State<AuthScreen> {
       key: _scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Stack(
-              children: <Widget>[
-                AuthForm(_handleSubmit),
-                _isLoading
-                    ? Positioned.fill(
-                        child: Container(
-                          margin: const EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(0, 0, 0, 0.5),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Stack(
+                children: <Widget>[
+                  AuthForm(_handleSubmit),
+                  _isLoading
+                      ? Positioned.fill(
+                          child: Container(
+                            margin: const EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: Color.fromRGBO(0, 0, 0, 0.5),
+                            ),
+                            child: Center(
+                              child: CircularProgressIndicator(),
+                            ),
                           ),
-                          child: Center(
-                            child: CircularProgressIndicator(),
-                          ),
-                        ),
-                      )
-                    : const SizedBox.shrink(),
-              ],
-            ),
-          ],
+                        )
+                      : const SizedBox.shrink(),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
