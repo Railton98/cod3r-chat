@@ -24,7 +24,7 @@ class _AuthScreenState extends State<AuthScreen> {
       _isLoading = true;
     });
 
-    AuthResult authResult;
+    UserCredential authResult;
 
     try {
       if (authData.isLogin) {
@@ -52,10 +52,10 @@ class _AuthScreenState extends State<AuthScreen> {
           'imageUrl': url,
         };
 
-        await Firestore.instance
+        await FirebaseFirestore.instance
             .collection('users')
-            .document(authResult.user.uid)
-            .setData(userData);
+            .doc(authResult.user.uid)
+            .set(userData);
       }
     } on PlatformException catch (err) {
       final msg = err.message ?? 'Ocorreu um erro! Verifique suas Credenciais!';
